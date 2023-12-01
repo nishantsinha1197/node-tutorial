@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+nav{
+    height:70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    color: white;
+}
+nav>.logo{
+    color: green;
+    font-size: 36px;
+}
+/* nav>.links {
+    color: white;
+
+} */
+nav>.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px; 
+    font-size: 30px;
+}

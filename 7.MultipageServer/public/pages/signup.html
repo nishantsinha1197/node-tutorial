@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/signupcss">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">JS_RIDERS</div>
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/signup">Signup</a>
+        </div>
+    </nav>
+    <h1>SIGN UP PAGE</h1>
+    <form id="form">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName"  name="firstname">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastname">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="password">Password:</label>
+        <input type="password" id="cpassword" name="pass">
+
+        <label for="password">Confirm Password:</label>
+        <input type="password" id="password"  name="conPass">
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday"  name="dob">
+
+        <label>Gender:</label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female">
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        let FORM = document.getElementById('form');
+        let userDetails ={}
+        FORM.addEventListener("input", (event) => {
+           // console.log(event.target.value,event.target.name);
+            let value = event.target.value;
+            let name = event.target.name;
+            userDetails[name] = value;
+            console.log(userDetails);
+        })
+        FORM.addEventListener("submit",async(event)=>{
+            event.preventDefault();
+            if(userDetails.pass && userDetails.pass===userDetails.conPass ){
+                console.log('password matched');
+                let res= await fetch("/newuser",{
+                    method:"POST",
+                    headers:{"Content-type":"application/json"},
+                    body:JSON.stringify(userDetails)
+                })
+               let result = await res.json();
+               console.log(result);
+            }
+            else{
+                alert('!!!!! PASSWORDS DONT MATCH, TRY AGAIN')
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
