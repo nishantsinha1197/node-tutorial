@@ -9,3 +9,4 @@ console.log(base); // test.txt
 
 const absolute = path.resolve(__dirname)
 console.log(absolute, 'content', 'subfolder', 'test.txt');
+
