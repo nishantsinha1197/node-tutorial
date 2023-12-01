@@ -16,3 +16,4 @@ const fileStream = fs.createReadStream('./bigFile.txt','utf-8')
         res.end(err)
     })
   We use another method , size remains the same but now we are getting header response as chunked
+  

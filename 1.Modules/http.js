@@ -5,8 +5,7 @@ const server = http.createServer((req,res)=>{
     {
         res.write("Welcome to our homepage");
         res.end()
-    }
-        
+    }    
     else if(req.url==='/about'){
         res.write("Here is our short history");
         res.end()
